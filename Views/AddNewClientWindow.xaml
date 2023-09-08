@@ -1,0 +1,74 @@
+﻿<Window x:Class="MyApplicationVer_2.Views.AddNewClientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyApplicationVer_2.ViewModels"
+        mc:Ignorable="d"
+        Title="Добавление клиента" Height="420" Width="350" ResizeMode="NoResize">
+    <Window.DataContext>
+        <local:AddNewClientWindowViewModel/>
+    </Window.DataContext>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="5">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+                <Label Content="Фамилия"/>
+                <TextBox BorderThickness="1" 
+                 Height="25" 
+                 VerticalContentAlignment="Center"
+                 Text="{Binding Surname}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="0, 55">
+                <Label Content="Имя"/>
+                <TextBox BorderThickness="1" 
+                 Height="25" 
+                 VerticalContentAlignment="Center"
+                 Text="{Binding Name}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="0, 110">
+                <Label Content="Отчество"/>
+                <TextBox BorderThickness="1" 
+                 Height="25" 
+                 VerticalContentAlignment="Center"
+                 Text="{Binding Patronymic}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="0, 110">
+                <Label Content="Номер телефона"/>
+                <TextBox BorderThickness="1" 
+                 Height="25" 
+                 VerticalContentAlignment="Center"
+                 Text="{Binding PhoneNumber}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="0, 55">
+                <Label Content="Серия паспорта"/>
+                <TextBox BorderThickness="1" 
+                 Height="25" 
+                 VerticalContentAlignment="Center"
+                 Text="{Binding PassportSeries}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+                <Label Content="Номер паспорта"/>
+                <TextBox BorderThickness="1" 
+                 Height="25" 
+                 VerticalContentAlignment="Center"
+                 Text="{Binding PassportNumber}"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Button Content="Добавить"
+            Command="{Binding AddNewClient}"/>
+        </Grid>
+    </Grid>
+</Window>

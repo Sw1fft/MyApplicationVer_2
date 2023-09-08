@@ -1,0 +1,111 @@
+﻿<Window x:Class="MyApplicationVer_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyApplicationVer_2.ViewModels"
+        mc:Ignorable="d"
+        Title="{Binding Title}" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="250"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <ListView ItemsSource="{Binding Clients, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedItem="{Binding SelectedClient, UpdateSourceTrigger=PropertyChanged}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn DisplayMemberBinding="{Binding Surname}">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader Content="Фамилия" Selector.IsSelected="{Binding IsSelected}"/>
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Name}"/>
+                            <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding Patronymic}"/>
+                            <GridViewColumn Width="120" Header="Номер телефона" DisplayMemberBinding="{Binding PhoneNumber}"/>
+                            <GridViewColumn Width="100" Header="Серия паспорта" DisplayMemberBinding="{Binding PassportSeries}"/>
+                            <GridViewColumn Width="100" Header="Номер паспорта" DisplayMemberBinding="{Binding PassportNumber}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <ComboBox VerticalAlignment="Top" Margin="25, 30" Height="30" VerticalContentAlignment="Center"
+                              ItemsSource="{Binding Employees, UpdateSourceTrigger=PropertyChanged}"
+                              SelectedItem="{Binding SelectedEmployee}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Name}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <ComboBox VerticalAlignment="Top"
+                              Height="30"
+                              Margin="25, 80"
+                              VerticalContentAlignment="Center"
+                              SelectedItem="{Binding SortClients}">
+                        <ComboBoxItem Content="Сортировка по фамилии" Tag="LastName"/>
+                        <ComboBoxItem Content="Сортировка по имени" Tag="FirstName"/>
+                        <ComboBoxItem Content="Сортировка по отчеству" Tag="Surname"/>
+                    </ComboBox>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Button Content="Добавить"
+                            x:Name="AddButton"
+                            VerticalAlignment="Bottom"
+                            Width="200"
+                            Height="30"
+                            Margin="0, 0, 0, 160"
+                            Command="{Binding OpenAddNewClientWindow}"/>
+
+                    <Button Content="Редактировать"
+                            x:Name="EditButton"
+                            VerticalAlignment="Bottom"
+                            Width="200"
+                            Height="30"
+                            Margin="0, 0, 0, 90"
+                            Command="{Binding OpenEditClientWindow}"/>
+
+                    <Button Content="Удалить"
+                            x:Name="DeleteButton"
+                            VerticalAlignment="Bottom"
+                            Width="200"
+                            Height="30"
+                            Margin="0, 20"
+                            Command="{Binding DeleteClient}"/>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <StatusBar>
+                <StatusBarItem>
+                    <TextBlock Text="12345"/>
+                </StatusBarItem>
+            </StatusBar>
+        </Grid>
+    </Grid>
+</Window>

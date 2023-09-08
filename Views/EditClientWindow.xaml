@@ -1,0 +1,92 @@
+﻿<Window x:Class="MyApplicationVer_2.Views.EditClientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyApplicationVer_2.ViewModels"
+        mc:Ignorable="d"
+        Title="Редактирование данных" Height="435" Width="350" ResizeMode="NoResize">
+    <Window.DataContext>
+        <local:EditClientWindowViewModel/>
+    </Window.DataContext>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="5">
+            <StackPanel Orientation="Vertical"
+                        Margin="0, 5"
+                        VerticalAlignment="Top"
+                        Visibility="{Binding ElementVisibility}">
+                
+                <Label Content="Фамилия"/>
+                <TextBox Text="{Binding Surname}"
+                         BorderThickness="1" 
+                         Height="25"
+                         VerticalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" 
+                        VerticalAlignment="Top"
+                        Margin="0, 60"
+                        Visibility="{Binding ElementVisibility}">
+                
+                <Label Content="Имя" Height="25"/>
+                <TextBox Text="{Binding Name}"
+                         BorderThickness="1" 
+                         Height="25"
+                         VerticalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" 
+                        VerticalAlignment="Top"
+                        Margin="0, 115"
+                        Visibility="{Binding ElementVisibility}">
+                
+                <Label Content="Отчество" Height="25"/>
+                <TextBox Text="{Binding Patronymic}"
+                         BorderThickness="1" 
+                         Height="25"
+                         VerticalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" 
+                        VerticalAlignment="Bottom"
+                        Margin="0, 115">
+                
+                <Label Content="Номер телефона" Height="25"/>
+                <TextBox Text="{Binding PhoneNumber}"
+                         BorderThickness="1" 
+                         Height="25"
+                         VerticalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" 
+                        VerticalAlignment="Bottom"
+                        Margin="0, 60"
+                        Visibility="{Binding ElementVisibility}">
+                
+                <Label Content="Серия паспорта" Height="25"/>
+                <TextBox Text="{Binding PassportSeries, Mode=TwoWay}"
+                         BorderThickness="1" 
+                         Height="25"
+                         VerticalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" 
+                        VerticalAlignment="Bottom"
+                        Margin="0, 5"
+                        Visibility="{Binding ElementVisibility}">
+                
+                <Label Content="Номер паспорта" Height="25"/>
+                <TextBox Text="{Binding PassportNumber}"
+                         BorderThickness="1" 
+                         Height="25"
+                         VerticalContentAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Button Content="Сохранить"
+            Command="{Binding SaveChanges}"/>
+        </Grid>
+    </Grid>
+</Window>
