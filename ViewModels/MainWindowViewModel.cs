@@ -23,12 +23,10 @@ namespace MyApplicationVer_2.ViewModels
         protected Client selectedClient;
         protected Consultant consultant;
         protected Manager manager;
-        protected bool _isSelectedColumn;
 
         protected BaseCommand _openAddNewClientWindow;
         protected BaseCommand _openEditClientWindow;
         protected BaseCommand _deleteClient;
-        protected BaseCommand _sortClients;
 
         #endregion
 
@@ -107,19 +105,6 @@ namespace MyApplicationVer_2.ViewModels
                 {
                     selectedClient = value;
                     OnPropertyChanged(nameof(SelectedClient));
-                }
-            }
-        }
-
-        public bool IsSelected
-        {
-            get { return _isSelectedColumn; }
-            set
-            {
-                if (_isSelectedColumn != value)
-                {
-                    _isSelectedColumn = value;
-                    OnPropertyChanged(nameof(IsSelected));
                 }
             }
         }

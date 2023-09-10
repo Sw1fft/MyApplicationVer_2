@@ -23,23 +23,22 @@
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0">
-                <ListView ItemsSource="{Binding Clients, UpdateSourceTrigger=PropertyChanged}"
-                          SelectedItem="{Binding SelectedClient, UpdateSourceTrigger=PropertyChanged}">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn DisplayMemberBinding="{Binding Surname}">
-                                <GridViewColumn.Header>
-                                    <GridViewColumnHeader Content="Фамилия" Selector.IsSelected="{Binding IsSelected}"/>
-                                </GridViewColumn.Header>
-                            </GridViewColumn>
-                            <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Name}"/>
-                            <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding Patronymic}"/>
-                            <GridViewColumn Width="120" Header="Номер телефона" DisplayMemberBinding="{Binding PhoneNumber}"/>
-                            <GridViewColumn Width="100" Header="Серия паспорта" DisplayMemberBinding="{Binding PassportSeries}"/>
-                            <GridViewColumn Width="100" Header="Номер паспорта" DisplayMemberBinding="{Binding PassportNumber}" />
-                        </GridView>
-                    </ListView.View>
-                </ListView>
+                <DataGrid ItemsSource="{Binding Clients}" 
+                          AutoGenerateColumns="False" 
+                          IsReadOnly="True"
+                          GridLinesVisibility="None"
+                          VerticalGridLinesBrush="DarkGray"
+                          Background="White"
+                          SelectedItem="{Binding SelectedClient}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}"/>
+                        <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
+                        <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}" Width="*"/>
+                        <DataGridTextColumn Header="Номер телефона" Binding="{Binding PhoneNumber}"/>
+                        <DataGridTextColumn Header="Серия паспорта" Binding="{Binding PassportSeries}"/>
+                        <DataGridTextColumn Header="Номер паспорта" Binding="{Binding PassportNumber}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </Grid>
 
             <Grid Grid.Column="1">
@@ -59,16 +58,6 @@
                                 </StackPanel>
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
-                    </ComboBox>
-
-                    <ComboBox VerticalAlignment="Top"
-                              Height="30"
-                              Margin="25, 80"
-                              VerticalContentAlignment="Center"
-                              SelectedItem="{Binding SortClients}">
-                        <ComboBoxItem Content="Сортировка по фамилии" Tag="LastName"/>
-                        <ComboBoxItem Content="Сортировка по имени" Tag="FirstName"/>
-                        <ComboBoxItem Content="Сортировка по отчеству" Tag="Surname"/>
                     </ComboBox>
                 </Grid>
 
