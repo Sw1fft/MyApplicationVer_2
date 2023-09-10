@@ -26,8 +26,10 @@
                 <DataGrid ItemsSource="{Binding Clients}" 
                           AutoGenerateColumns="False" 
                           IsReadOnly="True"
-                          GridLinesVisibility="Vertical"
-                          VerticalGridLinesBrush="DarkGray">
+                          GridLinesVisibility="None"
+                          VerticalGridLinesBrush="DarkGray"
+                          Background="White"
+                          SelectedItem="{Binding SelectedClient}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}"/>
                         <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
