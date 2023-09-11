@@ -6,6 +6,10 @@ namespace MyApplicationVer_2.Models
 {
     class Consultant : BaseRepository
     {
+        /// <summary>
+        /// Метод получения клиентов для консультанта
+        /// </summary>
+        /// <returns></returns>
         public override ObservableCollection<Client> GetClients()
         {
             clients.Clear();
@@ -37,6 +41,12 @@ namespace MyApplicationVer_2.Models
             return copyClients;
         }
 
+        /// <summary>
+        /// Метод редактирования данных для клиента
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="phoneNumber"></param>
+        /// <returns></returns>
         public override ObservableCollection<Client> EditClient(Client client, string phoneNumber)
         {
             client.PhoneNumber = phoneNumber;
@@ -46,17 +56,6 @@ namespace MyApplicationVer_2.Models
             WriteToFile();
 
             return clients;
-        }
-
-        public override void WriteToFile()
-        {
-            File.WriteAllText(clientPath, string.Empty);
-
-            using (StreamWriter sw = new StreamWriter(clientPath, true))
-            {
-                foreach (var item in clients)
-                    sw.WriteLine($"{item.Id};{item.Surname};{item.Name};{item.Patronymic};{item.PhoneNumber};{item.PassportSeries};{item.PassportNumber}");
-            }
         }
     }
 }

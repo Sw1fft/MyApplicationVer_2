@@ -23,6 +23,9 @@ namespace MyApplicationVer_2.ViewModels
 
         #region Properties
 
+        /// <summary>
+        /// Свойство Surname
+        /// </summary>
         public string Surname
         {
             get { return surname; }
@@ -36,6 +39,9 @@ namespace MyApplicationVer_2.ViewModels
             }
         }
 
+        /// <summary>
+        /// Свойство Name
+        /// </summary>
         public string Name
         {
             get { return name; }
@@ -49,6 +55,9 @@ namespace MyApplicationVer_2.ViewModels
             }
         }
 
+        /// <summary>
+        /// Свойство Patronymic
+        /// </summary>
         public string Patronymic
         {
             get { return patronymic; }
@@ -62,6 +71,9 @@ namespace MyApplicationVer_2.ViewModels
             }
         }
 
+        /// <summary>
+        /// Свойство Patronymic
+        /// </summary>
         public string PhoneNumber
         {
             get { return phoneNumber; }
@@ -75,6 +87,9 @@ namespace MyApplicationVer_2.ViewModels
             }
         }
 
+        /// <summary>
+        /// Свойство PassportSeries
+        /// </summary>
         public string PassportSeries
         {
             get { return passportSeries; }
@@ -88,6 +103,9 @@ namespace MyApplicationVer_2.ViewModels
             }
         }
 
+        /// <summary>
+        /// Свойство PassportNumber
+        /// </summary>
         public string PassportNumber
         {
             get { return passportNumber; }
@@ -105,6 +123,9 @@ namespace MyApplicationVer_2.ViewModels
 
         #region Commands
 
+        /// <summary>
+        /// Комманда добавления нового клиента
+        /// </summary>
         public BaseCommand AddNewClient
         {
             get
@@ -133,6 +154,9 @@ namespace MyApplicationVer_2.ViewModels
 
         #region Methods
 
+        /// <summary>
+        /// Метод закрытия окна
+        /// </summary>
         private void CloseWindow()
         {
             foreach (Window window in Application.Current.Windows)

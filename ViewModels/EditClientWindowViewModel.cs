@@ -110,6 +110,9 @@ namespace MyApplicationVer_2.ViewModels
 
         #region Commands
 
+        /// <summary>
+        /// Команда сохранения изменений
+        /// </summary>
         public BaseCommand SaveChanges
         {
             get
@@ -140,6 +143,9 @@ namespace MyApplicationVer_2.ViewModels
 
         #region Methods
 
+        /// <summary>
+        /// Метод закрытия окна
+        /// </summary>
         private void CloseWindow()
         {
             foreach (Window window in Application.Current.Windows)
@@ -152,6 +158,10 @@ namespace MyApplicationVer_2.ViewModels
             }
         }
 
+        /// <summary>
+        /// Метод указания выбранного клиента
+        /// </summary>
+        /// <param name="client"></param>
         private void SelectedClient(Client client)
         {
             Surname = client.Surname;

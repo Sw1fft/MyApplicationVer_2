@@ -81,7 +81,7 @@
 
         <Grid Grid.Row="1">
             <Button Content="Сохранить"
-            Command="{Binding SaveChanges}"/>
+                    Command="{Binding SaveChanges}"/>
         </Grid>
     </Grid>
 </Window>

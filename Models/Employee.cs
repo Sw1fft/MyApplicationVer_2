@@ -21,7 +21,7 @@ namespace MyApplicationVer_2.Models
         }
 
         /// <summary>
-        /// Свойство имени
+        /// Свойство Name
         /// </summary>
         public string Name
         {

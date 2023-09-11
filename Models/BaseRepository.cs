@@ -75,6 +75,12 @@ namespace MyApplicationVer_2.Models
             return clients;
         }
 
+        /// <summary>
+        /// Базовый метод редактирования клиентов
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="phoneNumber"></param>
+        /// <returns></returns>
         public virtual ObservableCollection<Client> EditClient(Client client, string phoneNumber) { return clients; }
         public virtual ObservableCollection<Client> EditClient(Client client, string surname, string name, string partronymic, string phoneNumber, string passportSeries, string passportNumber)
         {

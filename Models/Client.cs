@@ -18,6 +18,9 @@ namespace MyApplicationVer_2.Models
 
         #region Properties
 
+        /// <summary>
+        /// Свойство ID
+        /// </summary>
         public int Id
         {
             get { return _id; }
@@ -28,6 +31,9 @@ namespace MyApplicationVer_2.Models
             }
         }
 
+        /// <summary>
+        /// Свойство Surname
+        /// </summary>
         public string Surname
         {
             get { return _surname; }
@@ -38,6 +44,9 @@ namespace MyApplicationVer_2.Models
             }
         }
 
+        /// <summary>
+        /// Свойство Name
+        /// </summary>
         public string Name
         {
             get { return _name; }
@@ -48,6 +57,9 @@ namespace MyApplicationVer_2.Models
             }
         }
 
+        /// <summary>
+        /// Свойство Patronymic
+        /// </summary>
         public string Patronymic
         {
             get { return _patronymic; }
@@ -58,6 +70,9 @@ namespace MyApplicationVer_2.Models
             }
         }
 
+        /// <summary>
+        /// Свойство PhoneNumber
+        /// </summary>
         public string PhoneNumber
         {
             get { return _phoneNumber; }
@@ -68,6 +83,9 @@ namespace MyApplicationVer_2.Models
             }
         }
 
+        /// <summary>
+        /// Свойство PassportSeries
+        /// </summary>
         public string PassportSeries
         {
             get { return _passportSeries; }
@@ -78,6 +96,9 @@ namespace MyApplicationVer_2.Models
             }
         }
 
+        /// <summary>
+        /// Свойство PassportNumber
+        /// </summary>
         public string PassportNumber
         {
             get { return _passportNumber; }
