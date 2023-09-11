@@ -13,6 +13,8 @@ namespace MyApplicationVer_2.Models
     {
         public override ObservableCollection<Client> GetClients()
         {
+            ObservableCollection<Client> copyClients = new ObservableCollection<Client>();
+
             clients.Clear();
 
             using (StreamReader sr = new StreamReader(clientPath, true))
@@ -26,10 +28,17 @@ namespace MyApplicationVer_2.Models
                     Client client = new Client(Convert.ToInt32(lines[0]), lines[1], lines[2], lines[3], lines[4], lines[5], lines[6]);
 
                     clients.Add(client);
+                    copyClients.Add(client);
+                }
+
+                foreach (var item in copyClients)
+                {
+                    item.PassportSeries = "** **";
+                    item.PassportNumber = "*** ***";
                 }
             }
 
-            return clients;
+            return copyClients;
         }
 
         public override ObservableCollection<Client> EditClient(Client client, string phoneNumber)

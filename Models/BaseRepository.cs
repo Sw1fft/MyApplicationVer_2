@@ -14,6 +14,7 @@ namespace MyApplicationVer_2.Models
     {
         protected static readonly ObservableCollection<Employee> employees = new ObservableCollection<Employee>();
         protected static ObservableCollection<Client> clients = new ObservableCollection<Client>();
+        //protected ObservableCollection<string> passportSeiresCopy = new ObservableCollection<string>();
 
         protected readonly string clientPath = @"ClientCollection.txt";
         protected static readonly string employeePath = @"EmployeeCollection.txt";
@@ -124,6 +125,8 @@ namespace MyApplicationVer_2.Models
         public virtual void WriteToFile()
         {
             File.WriteAllText(clientPath, string.Empty);
+
+            
 
             using (StreamWriter sw = new StreamWriter(clientPath, true))
             {
