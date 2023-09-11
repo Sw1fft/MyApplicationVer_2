@@ -114,16 +114,6 @@ namespace MyApplicationVer_2.ViewModels
             }
         }
 
-        /*public Visibility ElementVisibility
-        {
-            get { return  elementVisibility; }
-            set
-            {
-                elementVisibility = value;
-                OnPropertyChanged(nameof(ElementVisibility));
-            }
-        }*/
-
         #endregion
 
         #region Commands

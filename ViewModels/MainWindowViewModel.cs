@@ -20,8 +20,8 @@ namespace MyApplicationVer_2.ViewModels
         protected ObservableCollection<Client> clientList;
         protected ObservableCollection<Employee> employeeList;
         public static Employee selectedEmployee;
-        protected Client selectedClient;
         protected Consultant consultant;
+        protected Client selectedClient;
         protected Manager manager;
 
         protected BaseCommand _openAddNewClientWindow;
@@ -158,10 +158,7 @@ namespace MyApplicationVer_2.ViewModels
                                 break;
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("Для начала выберите клиента из списка", caption: "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
-                    }
+                    else { MessageBox.Show("Для начала выберите клиента из списка", caption: "Внимание", MessageBoxButton.OK, MessageBoxImage.Information); }
                 });
             }
         }
@@ -184,10 +181,7 @@ namespace MyApplicationVer_2.ViewModels
                                 break;
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("Для начала выберите клиента из списка", caption:"Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
-                    }
+                    else { MessageBox.Show("Для начала выберите клиента из списка", caption: "Внимание", MessageBoxButton.OK, MessageBoxImage.Information); }
                 });
             }
         }

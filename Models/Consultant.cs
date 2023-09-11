@@ -46,8 +46,7 @@ namespace MyApplicationVer_2.Models
         {
             client.PhoneNumber = phoneNumber;
 
-            clients.Insert(client.Id, client);
-            clients.Remove(client);
+            clients[client.Id - 1].PhoneNumber = client.PhoneNumber;
 
             WriteToFile();
 
