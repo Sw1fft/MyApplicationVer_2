@@ -1,12 +1,6 @@
-﻿using MyApplicationVer_2.ViewModels;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Shapes;
 
 namespace MyApplicationVer_2.Models
 {

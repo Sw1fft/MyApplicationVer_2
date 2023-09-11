@@ -1,10 +1,4 @@
-﻿using MyApplicationVer_2.ViewModels;
-using MyApplicationVer_2.ViewModels.BaseViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MyApplicationVer_2.ViewModels.BaseViewModels;
 
 namespace MyApplicationVer_2.Models
 {

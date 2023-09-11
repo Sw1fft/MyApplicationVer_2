@@ -2,14 +2,8 @@
 using MyApplicationVer_2.Models;
 using MyApplicationVer_2.ViewModels.BaseViewModels;
 using MyApplicationVer_2.Views;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls.Primitives;
 
 namespace MyApplicationVer_2.ViewModels
 {
