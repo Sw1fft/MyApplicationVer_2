@@ -14,7 +14,7 @@ namespace MyApplicationVer_2.Models
     {
         protected static readonly ObservableCollection<Employee> employees = new ObservableCollection<Employee>();
         protected static ObservableCollection<Client> clients = new ObservableCollection<Client>();
-        //protected ObservableCollection<string> passportSeiresCopy = new ObservableCollection<string>();
+        protected ObservableCollection<Client> copyClients = new ObservableCollection<Client>();
 
         protected readonly string clientPath = @"ClientCollection.txt";
         protected static readonly string employeePath = @"EmployeeCollection.txt";
@@ -126,14 +126,10 @@ namespace MyApplicationVer_2.Models
         {
             File.WriteAllText(clientPath, string.Empty);
 
-            
-
             using (StreamWriter sw = new StreamWriter(clientPath, true))
             {
                 foreach (var item in clients)
-                {
                     sw.WriteLine($"{item.Id};{item.Surname};{item.Name};{item.Patronymic};{item.PhoneNumber};{item.PassportSeries};{item.PassportNumber}");
-                }
             }
         }
     }

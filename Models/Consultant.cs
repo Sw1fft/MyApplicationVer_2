@@ -13,9 +13,8 @@ namespace MyApplicationVer_2.Models
     {
         public override ObservableCollection<Client> GetClients()
         {
-            ObservableCollection<Client> copyClients = new ObservableCollection<Client>();
-
             clients.Clear();
+            copyClients.Clear();
 
             using (StreamReader sr = new StreamReader(clientPath, true))
             {
@@ -28,8 +27,10 @@ namespace MyApplicationVer_2.Models
                     Client client = new Client(Convert.ToInt32(lines[0]), lines[1], lines[2], lines[3], lines[4], lines[5], lines[6]);
 
                     clients.Add(client);
-                    copyClients.Add(client);
                 }
+
+                foreach (var item in clients)
+                    copyClients.Add(new Client(item.Id, item.Surname, item.Name, item.Patronymic, item.PhoneNumber, item.PassportSeries, item.PassportNumber));
 
                 foreach (var item in copyClients)
                 {
@@ -51,6 +52,17 @@ namespace MyApplicationVer_2.Models
             WriteToFile();
 
             return clients;
+        }
+
+        public override void WriteToFile()
+        {
+            File.WriteAllText(clientPath, string.Empty);
+
+            using (StreamWriter sw = new StreamWriter(clientPath, true))
+            {
+                foreach (var item in clients)
+                    sw.WriteLine($"{item.Id};{item.Surname};{item.Name};{item.Patronymic};{item.PhoneNumber};{item.PassportSeries};{item.PassportNumber}");
+            }
         }
     }
 }

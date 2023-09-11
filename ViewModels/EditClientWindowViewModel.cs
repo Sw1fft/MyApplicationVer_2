@@ -38,11 +38,6 @@ namespace MyApplicationVer_2.ViewModels
         public EditClientWindowViewModel()
         {
             SelectedClient(_selectedClient);
-
-            if (MainWindowViewModel.selectedEmployee.Id == 1)
-            {
-                ElementVisibility = Visibility.Collapsed;
-            }
         }
 
         #endregion
@@ -119,17 +114,7 @@ namespace MyApplicationVer_2.ViewModels
             }
         }
 
-        /*public int WindowHeight
-        {
-            get { return windowHeight; }
-            set
-            {
-                windowHeight = value;
-                OnPropertyChanged(nameof(WindowHeight));
-            }
-        }*/
-
-        public Visibility ElementVisibility
+        /*public Visibility ElementVisibility
         {
             get { return  elementVisibility; }
             set
@@ -137,7 +122,7 @@ namespace MyApplicationVer_2.ViewModels
                 elementVisibility = value;
                 OnPropertyChanged(nameof(ElementVisibility));
             }
-        }
+        }*/
 
         #endregion
 
