@@ -19,8 +19,7 @@
         <Grid Grid.Row="0" Margin="5">
             <StackPanel Orientation="Vertical"
                         Margin="0, 5"
-                        VerticalAlignment="Top"
-                        Visibility="{Binding ElementVisibility}">
+                        VerticalAlignment="Top">
                 
                 <Label Content="Фамилия"/>
                 <TextBox Text="{Binding Surname}"
@@ -30,8 +29,7 @@
             </StackPanel>
             <StackPanel Orientation="Vertical" 
                         VerticalAlignment="Top"
-                        Margin="0, 60"
-                        Visibility="{Binding ElementVisibility}">
+                        Margin="0, 60">
                 
                 <Label Content="Имя" Height="25"/>
                 <TextBox Text="{Binding Name}"
@@ -41,8 +39,7 @@
             </StackPanel>
             <StackPanel Orientation="Vertical" 
                         VerticalAlignment="Top"
-                        Margin="0, 115"
-                        Visibility="{Binding ElementVisibility}">
+                        Margin="0, 115">
                 
                 <Label Content="Отчество" Height="25"/>
                 <TextBox Text="{Binding Patronymic}"
@@ -62,8 +59,7 @@
             </StackPanel>
             <StackPanel Orientation="Vertical" 
                         VerticalAlignment="Bottom"
-                        Margin="0, 60"
-                        Visibility="{Binding ElementVisibility}">
+                        Margin="0, 60">
                 
                 <Label Content="Серия паспорта" Height="25"/>
                 <TextBox Text="{Binding PassportSeries, Mode=TwoWay}"
@@ -73,8 +69,7 @@
             </StackPanel>
             <StackPanel Orientation="Vertical" 
                         VerticalAlignment="Bottom"
-                        Margin="0, 5"
-                        Visibility="{Binding ElementVisibility}">
+                        Margin="0, 5">
                 
                 <Label Content="Номер паспорта" Height="25"/>
                 <TextBox Text="{Binding PassportNumber}"
@@ -86,7 +81,7 @@
 
         <Grid Grid.Row="1">
             <Button Content="Сохранить"
-            Command="{Binding SaveChanges}"/>
+                    Command="{Binding SaveChanges}"/>
         </Grid>
     </Grid>
 </Window>

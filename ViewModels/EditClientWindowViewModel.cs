@@ -1,15 +1,7 @@
 ﻿using MyApplicationVer_2.Commands.BaseCommand;
 using MyApplicationVer_2.Models;
 using MyApplicationVer_2.ViewModels.BaseViewModels;
-using MyApplicationVer_2.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace MyApplicationVer_2.ViewModels
 {
@@ -38,11 +30,6 @@ namespace MyApplicationVer_2.ViewModels
         public EditClientWindowViewModel()
         {
             SelectedClient(_selectedClient);
-
-            if (MainWindowViewModel.selectedEmployee.Id == 1)
-            {
-                ElementVisibility = Visibility.Collapsed;
-            }
         }
 
         #endregion
@@ -119,30 +106,13 @@ namespace MyApplicationVer_2.ViewModels
             }
         }
 
-        /*public int WindowHeight
-        {
-            get { return windowHeight; }
-            set
-            {
-                windowHeight = value;
-                OnPropertyChanged(nameof(WindowHeight));
-            }
-        }*/
-
-        public Visibility ElementVisibility
-        {
-            get { return  elementVisibility; }
-            set
-            {
-                elementVisibility = value;
-                OnPropertyChanged(nameof(ElementVisibility));
-            }
-        }
-
         #endregion
 
         #region Commands
 
+        /// <summary>
+        /// Команда сохранения изменений
+        /// </summary>
         public BaseCommand SaveChanges
         {
             get
@@ -173,6 +143,9 @@ namespace MyApplicationVer_2.ViewModels
 
         #region Methods
 
+        /// <summary>
+        /// Метод закрытия окна
+        /// </summary>
         private void CloseWindow()
         {
             foreach (Window window in Application.Current.Windows)
@@ -185,6 +158,10 @@ namespace MyApplicationVer_2.ViewModels
             }
         }
 
+        /// <summary>
+        /// Метод указания выбранного клиента
+        /// </summary>
+        /// <param name="client"></param>
         private void SelectedClient(Client client)
         {
             Surname = client.Surname;

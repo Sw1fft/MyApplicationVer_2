@@ -1,19 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace MyApplicationVer_2.Models
 {
     class Consultant : BaseRepository
     {
+        /// <summary>
+        /// Метод получения клиентов для консультанта
+        /// </summary>
+        /// <returns></returns>
         public override ObservableCollection<Client> GetClients()
         {
             clients.Clear();
+            copyClients.Clear();
 
             using (StreamReader sr = new StreamReader(clientPath, true))
             {
@@ -27,17 +27,31 @@ namespace MyApplicationVer_2.Models
 
                     clients.Add(client);
                 }
+
+                foreach (var item in clients)
+                    copyClients.Add(new Client(item.Id, item.Surname, item.Name, item.Patronymic, item.PhoneNumber, item.PassportSeries, item.PassportNumber));
+
+                foreach (var item in copyClients)
+                {
+                    item.PassportSeries = "** **";
+                    item.PassportNumber = "*** ***";
+                }
             }
 
-            return clients;
+            return copyClients;
         }
 
+        /// <summary>
+        /// Метод редактирования данных для клиента
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="phoneNumber"></param>
+        /// <returns></returns>
         public override ObservableCollection<Client> EditClient(Client client, string phoneNumber)
         {
             client.PhoneNumber = phoneNumber;
 
-            clients.Insert(client.Id, client);
-            clients.Remove(client);
+            clients[client.Id - 1].PhoneNumber = client.PhoneNumber;
 
             WriteToFile();
 

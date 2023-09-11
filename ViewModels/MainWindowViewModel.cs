@@ -2,14 +2,8 @@
 using MyApplicationVer_2.Models;
 using MyApplicationVer_2.ViewModels.BaseViewModels;
 using MyApplicationVer_2.Views;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls.Primitives;
 
 namespace MyApplicationVer_2.ViewModels
 {
@@ -20,8 +14,8 @@ namespace MyApplicationVer_2.ViewModels
         protected ObservableCollection<Client> clientList;
         protected ObservableCollection<Employee> employeeList;
         public static Employee selectedEmployee;
-        protected Client selectedClient;
         protected Consultant consultant;
+        protected Client selectedClient;
         protected Manager manager;
 
         protected BaseCommand _openAddNewClientWindow;
@@ -43,8 +37,14 @@ namespace MyApplicationVer_2.ViewModels
 
         #region Properties
 
+        /// <summary>
+        /// Свойство Title
+        /// </summary>
         public string Title { get; } = "Клиентский справочник";
 
+        /// <summary>
+        /// Свойсвто Employees
+        /// </summary>
         public ObservableCollection<Employee> Employees
         {
             get { return employeeList; }
@@ -58,6 +58,9 @@ namespace MyApplicationVer_2.ViewModels
             }
         }
 
+        /// <summary>
+        /// Свойство Clients
+        /// </summary>
         public ObservableCollection<Client> Clients
         {
             get { return clientList; }
@@ -71,6 +74,9 @@ namespace MyApplicationVer_2.ViewModels
             }
         }
 
+        /// <summary>
+        /// Свойство SelectedEmployee
+        /// </summary>
         public Employee SelectedEmployee
         {
             get { return selectedEmployee; }
@@ -96,6 +102,9 @@ namespace MyApplicationVer_2.ViewModels
             }
         }
 
+        /// <summary>
+        /// Свойство SelectedClient
+        /// </summary>
         public Client SelectedClient
         {
             get { return selectedClient; }
@@ -113,6 +122,9 @@ namespace MyApplicationVer_2.ViewModels
 
         #region Commands
 
+        /// <summary>
+        /// Открывает окно для добавления нового сотрудника
+        /// </summary>
         public BaseCommand OpenAddNewClientWindow
         {
             get
@@ -134,6 +146,9 @@ namespace MyApplicationVer_2.ViewModels
             }
         }
 
+        /// <summary>
+        /// Открывает окно для редактирования сотрудника
+        /// </summary>
         public BaseCommand OpenEditClientWindow
         {
             get
@@ -158,14 +173,14 @@ namespace MyApplicationVer_2.ViewModels
                                 break;
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("Для начала выберите клиента из списка", caption: "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
-                    }
+                    else { MessageBox.Show("Для начала выберите клиента из списка", caption: "Внимание", MessageBoxButton.OK, MessageBoxImage.Information); }
                 });
             }
         }
 
+        /// <summary>
+        /// Удаляет сотрудника
+        /// </summary>
         public BaseCommand DeleteClient
         {
             get
@@ -184,10 +199,7 @@ namespace MyApplicationVer_2.ViewModels
                                 break;
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("Для начала выберите клиента из списка", caption:"Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
-                    }
+                    else { MessageBox.Show("Для начала выберите клиента из списка", caption: "Внимание", MessageBoxButton.OK, MessageBoxImage.Information); }
                 });
             }
         }
@@ -196,6 +208,9 @@ namespace MyApplicationVer_2.ViewModels
 
         #region Methods
 
+        /// <summary>
+        /// Метод открытия окна добавления сотрудника
+        /// </summary>
         private void OpenAddNewClientWindowMethod()
         {
             AddNewClientWindow addNewClientWindow = new AddNewClientWindow();
@@ -203,6 +218,9 @@ namespace MyApplicationVer_2.ViewModels
             SetCenterPositionAndOpen(addNewClientWindow);
         }
 
+        /// <summary>
+        /// Метод открытия окна редактирования сотрудника
+        /// </summary>
         private void OpenEditClientWindowMethod()
         {
             if (SelectedEmployee.Id == 1)
@@ -219,6 +237,10 @@ namespace MyApplicationVer_2.ViewModels
             }
         }
 
+        /// <summary>
+        /// Метод позиционирования окна
+        /// </summary>
+        /// <param name="window"></param>
         private void SetCenterPositionAndOpen(Window window)
         {
             window.Owner = Application.Current.MainWindow;

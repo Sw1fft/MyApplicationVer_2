@@ -1,12 +1,6 @@
-﻿using MyApplicationVer_2.ViewModels;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Shapes;
 
 namespace MyApplicationVer_2.Models
 {
@@ -14,6 +8,7 @@ namespace MyApplicationVer_2.Models
     {
         protected static readonly ObservableCollection<Employee> employees = new ObservableCollection<Employee>();
         protected static ObservableCollection<Client> clients = new ObservableCollection<Client>();
+        protected ObservableCollection<Client> copyClients = new ObservableCollection<Client>();
 
         protected readonly string clientPath = @"ClientCollection.txt";
         protected static readonly string employeePath = @"EmployeeCollection.txt";
@@ -80,6 +75,12 @@ namespace MyApplicationVer_2.Models
             return clients;
         }
 
+        /// <summary>
+        /// Базовый метод редактирования клиентов
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="phoneNumber"></param>
+        /// <returns></returns>
         public virtual ObservableCollection<Client> EditClient(Client client, string phoneNumber) { return clients; }
         public virtual ObservableCollection<Client> EditClient(Client client, string surname, string name, string partronymic, string phoneNumber, string passportSeries, string passportNumber)
         {
@@ -128,9 +129,7 @@ namespace MyApplicationVer_2.Models
             using (StreamWriter sw = new StreamWriter(clientPath, true))
             {
                 foreach (var item in clients)
-                {
                     sw.WriteLine($"{item.Id};{item.Surname};{item.Name};{item.Patronymic};{item.PhoneNumber};{item.PassportSeries};{item.PassportNumber}");
-                }
             }
         }
     }
