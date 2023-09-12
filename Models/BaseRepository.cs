@@ -10,8 +10,8 @@ namespace MyApplicationVer_2.Models
         protected static ObservableCollection<Client> clients = new ObservableCollection<Client>();
         protected ObservableCollection<Client> copyClients = new ObservableCollection<Client>();
 
-        protected readonly string clientPath = @"ClientCollection.txt";
-        protected static readonly string employeePath = @"EmployeeCollection.txt";
+        protected readonly string clientPath = @"D:\Visual Studio\Repos\repos\MyApplicationVer_2\Data\ClientCollection.txt";
+        protected static readonly string employeePath = @"D:\Visual Studio\Repos\repos\MyApplicationVer_2\Data\EmployeeCollection.txt";
 
         /// <summary>
         /// Метод получения списка клиентов из файла

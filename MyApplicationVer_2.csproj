@@ -125,6 +125,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Data\ClientCollection.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\EmployeeCollection.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
